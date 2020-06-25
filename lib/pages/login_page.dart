@@ -1,6 +1,10 @@
+import 'package:cartoriodigitalap/utils/nav.dart';
 import 'package:cartoriodigitalap/widgets/app_button.dart';
 import 'package:cartoriodigitalap/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+
+import 'home_page.dart';
+import 'login_api.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -9,11 +13,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-
-  final _tLogin = TextEditingController();
-
+  final _tEmail = TextEditingController();
   final _tSenha = TextEditingController();
-
   final _focusSenha = FocusNode();
 
   @override
@@ -41,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             AppText(
               "E-mail",
               "Digite o email",
-              controller: _tLogin,
+              controller: _tEmail,
               validator: _validateLogin,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
@@ -71,12 +72,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _onClickLogin() {
+  Future<void> _onClickLogin() async {
     if (!_formKey.currentState.validate()) {
       return;
     }
-    String login = _tLogin.text;
+    String email = _tEmail.text;
     String senha = _tSenha.text;
+
+    bool ok = await LoginApi.login(email, senha);
+    if(ok) {
+      push(context, HomePage());
+    } else {
+      print("Login incorreto!");
+    }
   }
 
   String _validateLogin(String text) {
