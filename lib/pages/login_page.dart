@@ -13,8 +13,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _tEmail = TextEditingController();
-  final _tSenha = TextEditingController();
+  final _tEmail = TextEditingController(text: "user3@cartorio1.com");
+  final _tSenha = TextEditingController(text: "password");
   final _focusSenha = FocusNode();
 
   @override
