@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:cartoriodigitalap/pages/api_response.dart';
 import 'package:cartoriodigitalap/pages/components/loader.dart';
-import 'package:cartoriodigitalap/pages/usuario.dart';
+import 'package:cartoriodigitalap/pages/login/usuario.dart';
 import 'package:http/http.dart' as http;
 
 class LoginApi {

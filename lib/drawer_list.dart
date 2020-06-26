@@ -1,4 +1,4 @@
-import 'package:cartoriodigitalap/pages/login_page.dart';
+import 'package:cartoriodigitalap/pages/login/login_page.dart';
 import 'package:cartoriodigitalap/utils/nav.dart';
 import 'package:flutter/material.dart';
 

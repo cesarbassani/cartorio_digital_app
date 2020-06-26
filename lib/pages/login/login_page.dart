@@ -1,12 +1,12 @@
 import 'package:cartoriodigitalap/pages/api_response.dart';
-import 'package:cartoriodigitalap/pages/usuario.dart';
+import 'package:cartoriodigitalap/pages/login/usuario.dart';
 import 'package:cartoriodigitalap/utils/nav.dart';
 import 'package:cartoriodigitalap/widgets/app_button.dart';
 import 'package:cartoriodigitalap/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'home_page.dart';
+import '../servico/home_page.dart';
 import 'login_api.dart';
 
 class LoginPage extends StatefulWidget {
