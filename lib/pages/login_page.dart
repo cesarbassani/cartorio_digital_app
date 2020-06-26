@@ -1,3 +1,4 @@
+import 'package:cartoriodigitalap/pages/usuario.dart';
 import 'package:cartoriodigitalap/utils/nav.dart';
 import 'package:cartoriodigitalap/widgets/app_button.dart';
 import 'package:cartoriodigitalap/widgets/app_text.dart';
@@ -79,8 +80,9 @@ class _LoginPageState extends State<LoginPage> {
     String email = _tEmail.text;
     String senha = _tSenha.text;
 
-    bool ok = await LoginApi.login(email, senha);
-    if(ok) {
+    Usuario user = await LoginApi.login(email, senha);
+    if(user != null) {
+      print(">>> $user");
       push(context, HomePage());
     } else {
       print("Login incorreto!");

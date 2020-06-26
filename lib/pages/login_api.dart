@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:cartoriodigitalap/pages/usuario.dart';
 import 'package:http/http.dart' as http;
 
 class LoginApi {
-  static Future<bool> login(String email, String senha) async {
+  static Future<Usuario> login(String email, String senha) async {
     var url = 'http://meucartoriodigital.grupoimagetech.com.br:80/api/auth/login';
 
     Map<String, String> headers = {
@@ -26,12 +27,8 @@ class LoginApi {
 
     Map mapResponse = json.decode(response.body);
 
-    String nomeUsuario = mapResponse['user']['nome'];
-    String emailUsuario = mapResponse['user']['email'];
+    final user = Usuario.fromJson(mapResponse);
 
-    print("Nome: $nomeUsuario");
-    print("Email: $emailUsuario");
-
-    return true;
+    return user;
   }
 }
