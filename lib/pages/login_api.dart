@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cartoriodigitalap/pages/api_response.dart';
+import 'package:cartoriodigitalap/pages/components/loader.dart';
 import 'package:cartoriodigitalap/pages/usuario.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,8 +23,9 @@ class LoginApi {
 
       String s = json.encode(params);
 
+      Loader.show();
       var response = await http.post(url, body: s, headers: headers);
-
+      Loader.hide();
       print('Response status: ${response.statusCode}');
       print('Response body: ${response.body}');
 
